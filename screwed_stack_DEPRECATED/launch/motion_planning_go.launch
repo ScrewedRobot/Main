@@ -1,0 +1,20 @@
+<launch>
+  <!--
+    This assumes you have already launched your iiwa_control + iiwa_hw + que36_moveit/move_group.launch
+    (the one you pasted above) in a separate terminal.
+  -->
+
+  <!-- <node pkg="tf2_ros"
+      type="static_transform_publisher"
+      name="world_to_iiwa_base"
+      args="0 0 0 0 0 0 world iiwa_link_0"/> -->
+
+  <!-- Our MoveIt “client” node: plans & executes two motions -->
+    <node pkg="screwed_stack"
+            type="basic_movement.py"
+            name="basic_movement"
+            output="screen">
+        <!-- <remap from="/move_group" to="/iiwa/move_group"/> -->
+    </node>
+
+</launch>

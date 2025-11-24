@@ -1,0 +1,9 @@
+# Request
+string[]                    joint_names
+float32[]                   joint_positions
+geometry_msgs/PoseStamped   target_pose
+bool                        use_cartesian
+---
+# Response
+bool                        success
+string                      message

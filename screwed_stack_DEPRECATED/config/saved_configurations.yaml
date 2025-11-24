@@ -1,0 +1,15 @@
+home:
+  use_cartesian: False
+  cartesian_pose:
+    position: { x: 0, y: 0, z: 0 }
+    orientation: { x: 0, y: 0, z: 0, w: 0}
+  joint_pose: 
+    position: [1.57, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+standby:
+  use_cartesian: False
+  cartesian_pose:
+    position: { x: 0, y: 0, z: 0 }
+    orientation: { x: 0, y: 0, z: 0, w: 0}
+  joint_pose:
+    position: [1.57, 1.22, 0.0, 2.06, 0.0, -0.96, 0.0]

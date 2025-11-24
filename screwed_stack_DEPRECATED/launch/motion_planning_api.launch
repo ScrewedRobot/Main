@@ -1,0 +1,24 @@
+<launch>
+  <!-- <param name="/robot_description"
+         command="$(find xacro)/xacro '$(find iiwa_description)/urdf/iiwa7.urdf.xacro'"/>
+
+  <param name="/robot_description_semantic"
+         textfile="$(find iiwa_moveit)/config/iiwa7.srdf"/> -->
+
+  <!-- <param name="/robot_description"
+         command="$(find xacro)/xacro '$(find iiwa_description)/urdf/iiwa7.urdf.xacro'"/>
+
+  <param name="/robot_description_semantic"
+         textfile="$(find iiwa_moveit)/config/ridgeback.srdf"/> 
+
+  <arg name="arm_id" default="manipulator"/> -->
+
+  
+<node name="motion_planning_client" pkg="screwed_stack" type="motion_planning_client" output="screen">
+<!-- <rosparam command="load" file="$(find iiwa_moveit)/config/kinematics.yaml" subst_value="true"/>
+<param name="/planning_plugin" value="ompl_interface/OMPLPlanner"/>
+<rosparam command="load" file="$(find iiwa_moveit)/config/ompl_planning.yaml"/> -->
+
+</node>
+
+</launch>

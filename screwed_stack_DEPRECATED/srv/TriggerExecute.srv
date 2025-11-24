@@ -1,0 +1,6 @@
+# Request
+int8    count
+---
+# Response
+bool    success
+string  message
