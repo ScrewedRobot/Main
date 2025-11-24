@@ -1,0 +1,9 @@
+<launch>
+
+    <node pkg="screwed_endeff"
+          type="endeff_node"
+          name="endeff_node"
+          output="screen">
+    </node>
+
+</launch>

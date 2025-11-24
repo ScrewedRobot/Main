@@ -1,0 +1,16 @@
+<launch>
+
+    <!-- Velocity Control Server -->
+    <node pkg="screwed_planning"
+          type="motion_planning_direct"
+          name="motion_planning_direct"
+          output="screen">
+    </node>
+
+    <!-- Launch Moveit -->
+    <include file="$(find que36_moveit)/launch/ridgeback_moveit_planning_execution.launch"/>
+
+    <!-- Realsense Camera -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch"/>
+
+</launch>

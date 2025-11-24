@@ -1,0 +1,13 @@
+- tag_id: 10
+  origin: # essentially the offset from the tag center to a reference hole of the bracket
+    position: { x: 0.2, y: 0.155, z: 0.0 }
+    orientation: { x: -1.0, y: 0.0, z: 0.0, w: 0.0 } # TODO: Add this
+    approach_offset: 0.55
+  targets:  # list of targeted hole locations with respect to the reference hole
+    # note that the first item should be the reference hole since only members 
+    # of this list get appended to the task list
+    - position: { x: 0.0, y: -0.035, z: 0.0 }
+      orientation: { x: 0.7071068, y: 0.7071068, z: 0.0, w: 1.0 }
+
+
+

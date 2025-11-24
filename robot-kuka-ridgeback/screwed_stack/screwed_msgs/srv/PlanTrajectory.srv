@@ -1,0 +1,18 @@
+# Request
+string[]                joint_names
+float32[]               joint_positions
+geometry_msgs/Pose      target_pose
+bool                    use_cartesian
+bool                    use_constraints
+bool                    use_ewellix_tlt
+bool                    use_diffik_planner
+bool                    use_simple_planner
+float32                 total_time
+float32                 diffik_speed
+moveit_msgs/Constraints constraints
+float32                 max_velocity_scaling_factor # Default should be 0.1
+float32                 max_acceleration_scaling_factor # Default should be 0.1
+---
+# Response
+bool                    success
+string                  message

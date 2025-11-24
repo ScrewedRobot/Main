@@ -1,0 +1,21 @@
+- task_id: 1
+  frame: "base_link"
+  action: "screw"
+  goal_pose:
+    position: { x: 0.81857, y: 0.000377395, z: 0.77704 }
+    orientation: { x: 0.999861, y: 0.00108282, z: 0.0166279, w: 0.000462677 }
+  parameters:
+    approach_offset: 0.3
+    torque: 5.0
+    angle: 90
+
+- task_id: 2
+  frame: "base_link"
+  action: "screw"
+  goal_pose:
+    position: { x: 0.81857, y: 0.168109, z: 0.77704 }
+    orientation: { x: 0.999861, y: 0.00108282, z: 0.0166279, w: 0.000462677  }
+  parameters:
+    approach_offset: 0.3
+    torque: 5.0
+    angle: 90

@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="screwed_endeff"
+          type="modbus_driver_node.py"
+          name="modbus_driver_node"
+          output="screen" />
+</launch>
+

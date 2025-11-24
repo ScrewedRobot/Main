@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <material name="grey">
+    <color rgba="0.5 0.5 0.5 1"/>
+  </material>
+
+<!-- UM7 IMU Link -->
+
+  <link name="um7_link">
+  </link>
+
+  <joint name="um7_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="um7_link" />
+    <origin xyz="-0.020 -0.362 0.135" rpy="0.0 0 0.0" />
+  </joint>
+
+<!-- Sensor Frame Mesh Link -->
+
+  <link name="sensor_frame">
+    <visual>
+      <geometry>
+        <mesh filename="package://que36_description/meshes/que36_tower.STL"/>
+      </geometry>
+      <material name="black" />
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://que36_description/meshes/que36_tower.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="sensor_frame_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="sensor_frame" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0 0.0" />
+  </joint>
+
+<!-- Extra collision space around e-stop buttons -->
+
+  <link name="left_button">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.15 0.15 0.2"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_button_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="left_button" />
+    <origin xyz="-0.21 -0.32 0.5" rpy="0 0 0" />
+  </joint>
+
+  <link name="right_button">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.15 0.15 0.2"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_button_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="right_button" />
+    <origin xyz="-0.21 0.32 0.5" rpy="0 0 0" />
+  </joint>
+
+<!-- Extra collision space behind Ewellix for cables -->
+
+  <link name="cable_gap">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.03 0.15 0.19"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="cable_gap_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="cable_gap" />
+    <origin xyz="0.14 0 0.3" rpy="0 0 0" />
+  </joint>
+
+<!-- Add the ewellix mounting flange -->
+
+  <link name="ewellix_mount_flange_link">
+    <visual>
+      <geometry>
+        <box size="0.2 0.2 0.015"/>
+      </geometry>
+      <material name="grey"/>
+      <origin rpy="0 0 0" xyz="0 0 0.0075"/>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.2 0.2 0.015"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0075"/>
+    </collision>
+  </link>
+
+  <joint name="ewellix_mount_flange_joint" type="fixed">
+    <parent link="mid_mount"/>
+    <child link="ewellix_mount_flange_link"/>
+    <origin xyz="0.252 0.0 0.0" rpy="0 0 0" />
+  </joint>
+
+<!-- Add the Ewellix lift column xacro -->
+
+  <xacro:include filename="$(find ewellix_tlt)/urdf/ewellix_lift_500mm.urdf.xacro" />
+
+  <xacro:ewellix_lift_500mm prefix="" parent="ewellix_mount_flange_link" cut_model="1">
+    <origin xyz="0 0 0.015" rpy="0 0 1.5708" />
+  </xacro:ewellix_lift_500mm>  
+
+<!-- Add the kuka iiwa 7 R800 Mounting Plate -->
+  <xacro:include filename="$(find que36_description)/urdf/kuka_adapter_plate.urdf.xacro"/>
+
+<!-- Add the kuka iiwa 7 R800 Mounting Plate with 45 Degree Angle Bracket -->
+  <!--xacro:include filename="$(find que36_description)/urdf/kuka_adapter_45_plate.urdf.xacro"/-->
+
+<!-- Add the kuka iiwa 7 R800 -->
+  <xacro:include filename="$(find iiwa_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find iiwa_description)/urdf/iiwa7.xacro"/>
+
+  <xacro:arg name="hardware_interface" default="PositionJointInterface"/>
+  <xacro:arg name="robot_name" default="iiwa"/>
+
+  <xacro:iiwa7 hardware_interface="$(arg hardware_interface)" robot_name="$(arg robot_name)" parent="kuka_adapter_plate_link">
+    <origin xyz="0 0 0.02" rpy="0 0 0" />
+  </xacro:iiwa7>
+
+</robot>

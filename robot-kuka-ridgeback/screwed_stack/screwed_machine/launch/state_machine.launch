@@ -1,0 +1,10 @@
+<launch>
+
+    <node pkg="screwed_machine"
+          type="state_machine_node.py"
+          name="state_machine"
+          output="screen">
+
+    </node>
+
+</launch>

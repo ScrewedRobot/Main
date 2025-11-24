@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="um7" type="um7_driver" name="um7_driver">
+    <param name="port" type="string" value="$(optenv RIDGEBACK_IMU_PORT /dev/clearpath/um7)"/>
+    <param name="mag_updates" type="bool" value="false"/>
+    <param name="frame_id" value="um7_link"/>
+    <param name="tf_ned_to_enu" value="false"/>
+    <remap from="imu" to="imu_um7"/>
+  </node>
+
+  <!--node pkg="nodelet" type="nodelet" name="imu_manager" args="manager"/-->
+
+  <!--node pkg="tf" type="static_transform_publisher" name="um7_broadcaster" args="-0.02 -0.362 0.135 0 0 0 base_link um7_imu_link 100" /-->
+
+</launch>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Add Kuka Adapter 45 Degree Angle Plate Mount -->
+
+  <link name="kuka_adapter_45_plate_base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://que36_description/meshes/Kuka iiwa 7 - Mount - 45 Angle.STL"/>
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://que36_description/meshes/Kuka iiwa 7 - Mount - 45 Angle.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="kuka_adapter_45_plate_joint" type="fixed">
+    <parent link="ewellix_lift_top_link" />
+    <child link="kuka_adapter_45_plate_base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 -1.57079" />
+  </joint>
+
+  <link name="kuka_adapter_45_plate_mount_link" />
+
+  <joint name="kuka_adapter_45_mount_joint" type="fixed">
+    <parent link="kuka_adapter_45_plate_base_link" />
+    <child link="kuka_adapter_45_plate_mount_link" />
+    <origin xyz="0.009 0.0 0.087" rpy="0 0.78539 0" />
+  </joint>
+
+  <!-- Add the Kuka iiwa adapter Circle Plate -->
+
+  <link name="kuka_adapter_plate_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://que36_description/meshes/Kuka iiwa 7 - Mount.STL"/>
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://que36_description/meshes/Kuka iiwa 7 - Mount.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="kuka_adapter_plate_joint" type="fixed">
+    <parent link="kuka_adapter_45_plate_mount_link" />
+    <child link="kuka_adapter_plate_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 1.57079" />
+  </joint>
+
+</robot>

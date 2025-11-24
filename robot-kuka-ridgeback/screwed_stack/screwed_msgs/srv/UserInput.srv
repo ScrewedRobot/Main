@@ -1,0 +1,14 @@
+# Request
+bool freeze_toggle      # Pause/Resume State Machine steps
+bool manual_toggle      # Toggles position jogging
+bool acquire            # Triggers the acquire state
+bool approach           # Triggers the approach state  
+bool navigate           # Triggers the navigation state
+bool execute            # Triggers the execute state
+bool reset              # Resets and reinitialize the state machine
+bool step_once          # Triggers the next step in the state machine while frozen
+
+---
+# Response
+bool success
+string message

@@ -1,0 +1,10 @@
+# Request
+float64[]                   q_start
+geometry_msgs/Point         xyphi_displacement
+int16                       eef_steps
+float32                     total_time
+---
+# Response
+bool                        success
+string                      message
+moveit_msgs/RobotTrajectory trajectory

@@ -1,0 +1,10 @@
+<launch>
+
+    <node pkg="screwed_planning"
+          type="jog_position.py"
+          name="jog_position"
+          output="screen">
+
+    </node>
+
+</launch>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- === 0) MODEL & NAMESPACE ARGS === -->
+  <arg name="model"              default="iiwa7"/>
+  <arg name="hardware_interface" default="PositionJointInterface"/>
+  <arg name="robot_name"         default="iiwa"/>
+
+  <!-- === 1) LOAD THE IIWA URDF === -->
+  <!-- this will populate /robot_description -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro --inorder \
+           $(find iiwa_description)/urdf/$(arg model).urdf.xacro \
+           hardware_interface:=$(arg hardware_interface) \
+           robot_name:=$(arg robot_name)"
+         />
+
+  <!-- === 2) LOAD THE IIWA SRDF === -->
+  <!-- must use exactly this param name, no leading slash -->
+  <param name="robot_description_semantic"
+         textfile="$(find iiwa_moveit)/config/$(arg model).srdf"
+         />
+
+  <!-- === 3) JOINT LIMITS OVERRIDES (optional) === -->
+  <rosparam
+    command="load"
+    file="$(find iiwa_moveit)/config/joint_limits.yaml"
+    ns="robot_description_planning"/>
+
+  <!-- === 4) KINEMATICS SETTINGS (optional) === -->
+  <rosparam
+    command="load"
+    file="$(find iiwa_moveit)/config/kinematics.yaml"
+    ns="robot_description_kinematics"/>
+
+</launch>

@@ -1,0 +1,10 @@
+<launch>
+
+    <node pkg="screwed_planning"
+          type="diffik_planner_node.py"
+          name="diffik_planner"
+          output="screen">
+
+    </node>
+
+</launch>

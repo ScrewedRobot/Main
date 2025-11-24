@@ -1,0 +1,8 @@
+- git:
+    uri: https://github.com/ipa-rwu/iiwa_stack.git
+    local-name: iiwa_stack
+    version: master
+- git:
+    uri: https://github.com/clearpathrobotics/ewellix_tlt.git
+    local-name: ewellix_tlt
+    version: noetic-devel

@@ -1,0 +1,10 @@
+<launch>
+
+    <node pkg="screwed_planning"
+          type="motion_planning_server"
+          name="motion_planning_server"
+          output="screen">
+
+    </node>
+
+</launch>

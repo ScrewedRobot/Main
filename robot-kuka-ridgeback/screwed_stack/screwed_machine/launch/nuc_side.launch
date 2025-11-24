@@ -1,0 +1,48 @@
+<launch>
+
+    <node pkg="screwed_machine"
+          type="state_machine_node.py"
+          name="state_machine"
+          output="screen">
+    </node>
+
+    <node pkg="screwed_planning"
+          type="motion_planning_server"
+          name="motion_planning_server"
+          output="screen">
+    </node>
+
+    <node pkg="screwed_planning"
+          type="motion_planning_force"
+          name="motion_planning_force"
+          output="screen">
+    </node>
+
+    <node pkg="screwed_machine"
+          type="task_creator_node.py"
+          name="task_creator_node"
+          output="screen">
+    </node>
+
+
+    <node pkg="screwed_endeff"
+      type="modbus_metrics_node.py"
+      name="modbus_metrics_node"
+      output="screen">
+    </node>
+
+    <!-- Navigation and SLAM -->
+    <include file="$(find screwed_2dnav)/launch/slam_and_nav.launch"/>
+
+    <!-- Foxglove telemetry / visualization -->
+    <include file="$(find screwed_machine)/launch/foxglove.launch"/>
+
+    <!-- Optional: Joystick control -->
+    <node pkg="screwed_machine"
+          type="joystick_node.py"
+          name="iiwa_joystick_controls"
+          output="screen">
+    </node>
+
+</launch>
+

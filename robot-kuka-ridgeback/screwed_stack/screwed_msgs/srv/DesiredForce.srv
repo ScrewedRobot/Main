@@ -1,0 +1,19 @@
+# Request
+Header  header
+
+int8    stop=0
+int8    cartX=1
+int8    cartY=2
+int8    cartZ=3
+int8    axis            # With respect to the header frame
+float32 desired_force
+float32 timeout         # Timeout in seconds, 0 means no timeout
+
+float32 kP
+float32 kI
+float32 kD
+
+---
+# Response
+bool success
+string message

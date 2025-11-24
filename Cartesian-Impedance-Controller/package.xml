@@ -1,0 +1,69 @@
+<package format="3">
+  <name>cartesian_impedance_controller</name>
+  <version>1.1.1</version>
+  <description>
+    A Cartesian Impedance controller implementation
+  </description>
+  <maintainer email="matthias.mayr@cs.lth.se">Matthias Mayr</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <author>Matthias Mayr</author>
+  <author>Oussama Chouman</author>
+  <author>Julian Salt Ducaju</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+  <build_depend>control_msgs</build_depend>
+  <build_depend>controller_interface</build_depend>
+  <build_depend>controller_manager</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>eigen</build_depend>
+  <build_depend>eigen_conversions</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>realtime_tools</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>tf_conversions</build_depend>
+  <build_depend>trajectory_msgs</build_depend>
+
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>actionlib_msgs</exec_depend>
+  <exec_depend>control_msgs</exec_depend>
+  <exec_depend>controller_interface</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>dynamic_reconfigure</exec_depend>
+  <exec_depend>eigen_conversions</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>hardware_interface</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>pluginlib</exec_depend>
+  <exec_depend>realtime_tools</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>tf</exec_depend>
+  <exec_depend>tf_conversions</exec_depend>
+  <exec_depend>trajectory_msgs</exec_depend>
+  <exec_depend>yaml-cpp</exec_depend>
+
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+    <controller_interface plugin="${prefix}/controller_plugins.xml"/>
+  </export>
+  
+  <test_depend>gtest</test_depend>
+  <test_depend>eigen</test_depend>
+  <test_depend>roscpp</test_depend>
+  <test_depend>rostest</test_depend>
+  <test_depend>geometry_msgs</test_depend>
+  <test_depend>std_msgs</test_depend>
+  <test_depend>dynamic_reconfigure</test_depend>
+  <test_depend>yaml-cpp</test_depend>
+</package>
